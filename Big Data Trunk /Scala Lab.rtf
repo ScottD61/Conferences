@@ -7,19 +7,6 @@
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f0\fs24 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Lab 13a -     Lab13a: SCALA PROGRAMMING WITH SPARK       \
-=====================================================================================================================================================\
-CopyRight - Big Data Trunk LLC\
-www.BigDataTrunk.com\
-Twitter - @BigDataTrunk\
-\
-======================================================================================================================================================\
-The aim of this document is to learn and practice Scala Programming using the cloudera hadoop Quickstart vm CDH 5.3.0 \
-\
-====================================================================================================================================================\
-#Spark is pre-installed in Quickstart vm CDH 5.3 .0. We need to enter into spark shell by changing present working directory which is shown below.\
-cd /usr/lib/spark\
-\
 # Command to enter into Spark Shell. This would take you to the scala shell\
 ./bin/spark-shell\
 \
@@ -89,12 +76,12 @@ i+=1\
 \}\
 \
 #For each Loop:\
-var args="hi"\
+var args = "hi"\
 args.foreach(arg=>println(arg))\
 args.foreach(println)\
 \
 #For Loop:\
-for (i<-1 to 5)\
+for (i <- 1 to 5)\
 println(i)\
 \
 #While traversing an array, following could be applied:\
@@ -110,14 +97,13 @@ for(i<-1 to 3;j<-1 to 3)println(10*i+j)\
 #We can put condition in multi generators for loop\
 for(i<-1 to 3;j<-1 to 3 if i==j)println(10*i+j)\
 \
-#We can introduce variables in loop!\
+#introduce variables in loop\
 for(i<-1 to 3; x=4-i;j<-x to 3)println(10*i+j)\
 val x=for(i<-1 to 20)yield i*2.5\
 for(i<-x)println(i)\
 \
-#******************************************************************************************\
+\
 #Functions:\
-#******************************************************************************************\
 def area(radius:Int):Double=\{3.14*radius*radius\}\
 \
 #We need to specify a data type for a recursive function:\
@@ -125,13 +111,12 @@ def area(radius:Int):Double=\{3.14*radius*radius\}\
 def factorial (n:Int):Int=if(n==0)1 else n*factorial(n-1)\
 \
 #Arrays:\
-#Scala have only fixed length Arrays\
 val n=new Array[Int] (10)\
 val s=new Array[String] (10)\
 val st=Array("Hello", "World")\
 \
 #ArrayBuffers:\
-#Variable Length Arrays (Array buffers). Similar tojavaArrayList\
+#Variable Length Arrays - Array buffers\
 \
 import scala.collection.mutable.ArrayBuffer\
 val a=ArrayBuffer[Int]()\
@@ -152,8 +137,6 @@ println(el)\
 for(el<-a if el%2==0)yield(2*el)\
 \
 #Maps:\
-#In scala,Map in a collection of pair.A pair is a group of two values (Not necessarily of same type)\
-\
 val mapping=Map("UnitedStates"->"UnitedKingdom","Tokyo"->"India")\
 val mapping=scala.collection.mutable.Map("UnitedStates"->"U","Tokyo"->"I")\
 val x=mapping("UnitedStates")\
@@ -165,25 +148,19 @@ mapping+=("Irland"->"Newzeland")\
 for((u,i)<-mapping)yield(i,u)\
 \
 #Tuples:\
-#Tuple is more generalized form of pair. Tuple has more than two values of potentially different types\
-\
 val a=(1,4,"Bob","Jack")\
 a._2\
-\
-#In tuples the offset start with 1 and NOT from 0.\
-\
-#Tuples are typically used for the functions which return more than one value.\
 \
 "New Jercy".partition(_.isUpper)\
 val lst = List(1,2)\
 lst.head\
 lst.tail\
 \
-#Operator adds a new list from given head and tail\
+#Operator\
+#add new list from given head and tail\
 2::List(4,5)\
 \
-\
-#We can use iterator to iterate over a list, but recursion is a preferred practice in scala \
+#Iterate over list\
 def sum(l:List[Int]):Int=\{if(l==Nil)0 else l.head + sum(l.tail)\}\
 val y=sum(lst)\
 }
