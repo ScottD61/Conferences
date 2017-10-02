@@ -1,0 +1,49 @@
+#Log into MySQL from terminal 
+mysql -u root -p
+
+#We can see databases which is present in mysql using following command.
+show databases;
+
+#We have to enter into a particular database for this we need to use following command.
+use retail_db;
+
+#See tables present in retail_db database
+show tables;
+
+#To find table schema of a specific table in mysql.
+desc table ;
+
+#List out all rows of a particular table in a specific database
+select * from departments;
+
+#Exit mysql
+quit;
+
+#Get all scoop commands
+sqoop help
+
+#To list the databases in mysql from local system
+sqoop list –databases \ 
+connect jdbc:mysql://quickstart.cloudera\ 
+username root –password cloudera
+
+#To list the all tables in the retail_db database
+sqoop list –tables \ 
+>--connect jdbc:mysql:/// \ 
+>--username --password
+
+#Importing the departments table of retail-db database in hadoop 
+sqoop import\ 
+connect jdbc:mysql:/// \ 
+username --password \ 
+table \ 
+fields-terminated-by ‘\t’
+
+#Importing the table by working with one mapper
+sqoop import \ 
+connect jdbc:mysql://quickstart.cloudera/retail_db \ 
+username root –password cloudera \ 
+table products\ >--fields-terminated-by ‘\t’ \ 
+m 1 
+target-dir /itemsdata
+
