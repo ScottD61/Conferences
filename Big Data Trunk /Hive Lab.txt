@@ -1,0 +1,83 @@
+#Start hive shell
+hive
+
+#Create file in local file system
+100	mike 5000 
+101	john 10000
+102	Henry 15000
+103	smith 20000 
+
+#Create internal table called emp
+Create table emp (empid int, empname string, empsal float) 
+row format delimited
+fields terminated by ‘\t’;
+
+#upload file into emp table from local file system
+load data local inpath ‘/home/cloudera/Empinfo ’into table emp 
+
+#Query all data from emp table
+Select * from emp;
+
+#Query data from amp table where salary over 10k
+select * from emp WHERE empsal > 10000 
+
+#Query data from john
+select emp-id,emp-sal from Emp WHERE empname=”john”; 
+
+#Drop emp table
+Drop table emp;
+
+#Check and see if data removed from table
+Select * from emp;
+
+#Create external table without location
+create external table student(stuid int, stuname string, stumarks int ) 
+row format delimited fields terminated by ‘\t’; 
+
+cat> student info
+
+#Load file into student table from local file system
+load data local inpath ‘/home/cloudera/student info ’into table studentinfo; 
+
+#Describe table
+Desc student;
+#Query data from student table
+Select * from student;
+#Query student marks above 60
+select * from student WHERE stu-marks> 60 
+#Query student data where their id is 14
+select stu-name,stu-marks from student WHERE stu-id = “14”; 
+#Query Bevin
+select stu-id, stu-marks from student WHERE stu-name = “Bevin”; 
+#Query Clarke
+select * student WHERE stu-name=”Clarke”; 
+#External table with location
+create external table item (itemid int, itemname string, item price int) 
+row format delimited fields terminated by ‘\t’ location ‘/goods/things/articles’; 
+
+Cat > item
+
+#Load data from local file system
+load data local inpath ‘/home/cloudera/item’ 
+>overwrite into table item; 
+
+#Query data from external table with location
+Select * from item
+
+#Query data where price greater than 50
+select itemid , itemname WHERE itemprice >50; 
+
+#Query data where price = 50
+select item-name WHERE item-price=50 ; 
+
+#Drop table from schema
+select * from Item; 
+
+
+
+
+
+
+
+
+

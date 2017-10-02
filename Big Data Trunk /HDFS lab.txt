@@ -1,0 +1,51 @@
+#Get version of Hadoop
+Hadoop version
+
+#Displays list of files and directories in HDFS file path
+Hadoop fs-ls /
+
+#Create directory
+hadoop fs ‐mkdir /bigdata
+
+#Display summary of file lengths 
+hadoop fs ‐du ‐s /user/cloudera/HdfsHello
+
+#Create file in HDFS with file size 0 bytes
+hadoop fs ‐touchz /user/cloudera/sampledata
+
+#Check file size
+hadoop fs ‐du ‐s /user/cloudera/sampledata
+
+#Copy source path
+hadoop fs ‐cat /user/cloudera/HdfsHello
+
+#Create file in specified directory
+cat > hadooptraining
+
+#Append text from existing text file
+cat >> hadooptrianing
+
+#Takes source file and outputs file in text format
+hadoop fs ‐text /user/cloudera/HdfsHello
+
+#Copy file from local file system to HDFS
+hadoop fs ‐copyFromLocal /home/cloudera/hadooptraining /user/cloudera
+
+#Copy file from HDFS to local file system
+hadoop fs ‐copyToLocal HdfsHello /home/cloudera
+
+#Copy single source or multiple from local file system to destination 
+hadoop fs ‐put hadoop /user/cloudera
+
+#Copy file from HDFS to local file system
+hadoop fs ‐get bigdata /home/cloudera
+
+#Count number of directories, files and bytes under paths that match the pattern 
+hadoop fs ‐count /user/cloudera
+
+#Remove file from HDFS
+hadoop fs ‐rm sampledata
+
+#Remove directory to HDFS
+hadoop fs ‐rmr bigdata
+
